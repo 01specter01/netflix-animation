@@ -1,7 +1,4 @@
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
     width: 100%;
     height: 100vh;
     margin: 0;
@@ -16,32 +13,33 @@ body {
     width: 22.5rem;
     height: 32.5rem;
     overflow: hidden;
-    transform: scale(0.5);
+    transform: scale(0.8);
 }
 .logo::before {
+    content: "";
     position: absolute;
-    bottom: -100px;
     left: 0;
+    bottom: -100px;
     width: 100%;
     height: 120px;
-    content: "";
+    background: #000;
+    z-index: 2;
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
-    z-index: 2;
-    background-color: #000;
     transform: scaleX(1.5);
 }
 div {
     position: absolute;
     top: 0;
-    width: 7.5rem;
 }
 div:nth-child(1) {
     background: rgb(119, 0, 0);
     left: 0;
+    width: 7.5rem;
     animation: topTobottom 1s linear forwards;
 }
 div:nth-child(2) {
+    width: 7.5rem;
     left: 7.25rem;
     z-index: 1;
     background: rgb(192, 6, 6);
@@ -52,6 +50,7 @@ div:nth-child(2) {
     box-shadow: 0 0 100px black;
 }
 div:nth-child(3) {
+    width: 7.5rem;
     background: rgb(119, 0, 0);
     right: 0.3125rem;
     animation: topTobottom 1s linear forwards;
@@ -59,25 +58,40 @@ div:nth-child(3) {
 }
 @keyframes topTobottom {
     from {
-        left: 0%;
+        height: 0%;
     }
     to {
         height: 100%;
     }
 }
 h3 {
-    color: white;
-    margin-left: 110px;
-    font-size: xx-large;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    background-color: #fff;
+    background: 50% 100% / 50% 50% no-repeat
+        radial-gradient(ellipse at bottom, #fff, transparent, transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: "Source Sans Pro", sans-serif;
+    animation: reveal 3000ms ease-in-out forwards 200ms,
+        glow 2500ms linear infinite 2000ms;
 }
-.logo::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 400%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, red, black);
-    z-index: 3;
-    animation: animate 2s liniar forwards;
+@keyframes reveal {
+    80% {
+        letter-spacing: 8px;
+    }
+    100% {
+        background-size: 300% 300%;
+    }
+}
+@keyframes glow {
+    40% {
+        text-shadow: 0 0 20px #fff;
+    }
 }
